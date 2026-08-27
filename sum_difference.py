@@ -18,7 +18,6 @@ def subtract_numbers(first, second):
 
 
 def main():
-    # ---- Part 1: check the functions against the required test cases ----
     print("Checking add_numbers:")
     print("2 + 5 =", add_numbers(2, 5))
     print("37 + 57 =", add_numbers(37, 57))
@@ -30,7 +29,6 @@ def main():
     print("8 - 26 =", subtract_numbers(8, 26))
     print("270 - 157 =", subtract_numbers(270, 157))
 
-    # ---- Part 2: Add your own ----
     print()
     print("Now try your own numbers!")
     first = int(input("Enter the first number: "))
