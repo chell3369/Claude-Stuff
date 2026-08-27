@@ -36,3 +36,6 @@ def main():
 
     print(f"{first} + {second} = {add_numbers(first, second)}")
     print(f"{first} - {second} = {subtract_numbers(first, second)}")
+
+if __name__ == "__main__":
+    main()
