@@ -3,8 +3,6 @@
 # This program has two functions:
 #   1. add_numbers      -> returns first + second
 #   2. subtract_numbers -> returns first - second
-#
-# The main() function calls both and checks them against known answers.
 
 
 def add_numbers(first, second):
@@ -32,11 +30,7 @@ def main():
     print("8 - 26 =", subtract_numbers(8, 26))
     print("270 - 157 =", subtract_numbers(270, 157))
 
-    # ---- Part 2: CUSTOMIZE HERE ----
-    # This is where YOU interact with the program and provide your own
-    # numbers, instead of using the hardcoded examples above. Typing your
-    # own input and seeing the result live is a simple way to show this
-    # is your own work, not just copied test cases.
+    # ---- Part 2: Add your own ----
     print()
     print("Now try your own numbers!")
     first = int(input("Enter the first number: "))
@@ -44,8 +38,3 @@ def main():
 
     print(f"{first} + {second} = {add_numbers(first, second)}")
     print(f"{first} - {second} = {subtract_numbers(first, second)}")
-
-
-# This line makes sure main() only runs when you run this file directly.
-if __name__ == "__main__":
-    main()
