@@ -21,7 +21,7 @@ def check_zip(text):
 
 
 def check_sql(text):
-    bad_characters = ["'", '"', "\u2018", "\u2019", ";", "(", ")", "="]
+    bad_characters = ["'", '"', "‘", "’", ";", "(", ")", "="]
     for character in text:
         if character in bad_characters:
             return "FAIL"
@@ -76,12 +76,19 @@ def main():
     lines = input_file.readlines()
     input_file.close()
 
-    print("*" * 30)
-    print("Homework 3 - Input Validation")
+    header = f"{'Line':>4} | {'ZIP':^4} | {'SQL':^4} | {'Web':^4} | {'Shell':^5} | String"
+    divider = "-" * len(header)
+
+    print("=" * len(header))
+    print("Homework 3 - Input Validation".center(len(header)))
+    print("=" * len(header))
     print()
-    print(f"{'Line#':<8}{'ZIP':<8}{'SQL':<8}{'Web':<8}{'Shell':<8}{'String'}")
+    print(header)
+    print(divider)
 
     line_number = 1
+    safe_count = 0
+    flagged_count = 0
     for line in lines:
         text = line.rstrip("\n")
 
@@ -90,16 +97,26 @@ def main():
         web_result = check_web(text)
         shell_result = check_shell(text)
 
-        print(f"{line_number:<8}{zip_result:<8}{sql_result:<8}{web_result:<8}{shell_result:<8}{text}")
+        if zip_result == "PASS" and sql_result == "PASS" and web_result == "PASS" and shell_result == "PASS":
+            safe_count = safe_count + 1
+        else:
+            flagged_count = flagged_count + 1
+
+        row = f"{line_number:>4} | {zip_result:^4} | {sql_result:^4} | {web_result:^4} | {shell_result:^5} | {text}"
+        print(row)
         line_number = line_number + 1
+
+    print(divider)
+    print(f"{safe_count} line(s) safe in every context, {flagged_count} line(s) flagged by at least one check")
 
     print()
     print("Now try your own string!")
     my_string = input("Enter a string to test: ")
-    print("ZIP:  ", check_zip(my_string))
-    print("SQL:  ", check_sql(my_string))
-    print("Web:  ", check_web(my_string))
-    print("Shell:", check_shell(my_string))
+    print("-" * 20)
+    print(f"{'ZIP':<6}{check_zip(my_string)}")
+    print(f"{'SQL':<6}{check_sql(my_string)}")
+    print(f"{'Web':<6}{check_web(my_string)}")
+    print(f"{'Shell':<6}{check_shell(my_string)}")
 
 
 if __name__ == "__main__":
