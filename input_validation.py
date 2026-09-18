@@ -26,7 +26,6 @@ def check_sql(text):
         if character in bad_characters:
             return "FAIL"
 
-
     if "--" in text:
         return "FAIL"
 
@@ -41,8 +40,8 @@ def check_sql(text):
 
 def check_web(text):
     bad_characters = ["<", ">", '"', "'", "&", "‘", "’"]
-    for character in text:
-        if character in bad_characters:
+    for bad_character in bad_characters:
+        if bad_character in text:
             return "FAIL"
 
     if "javascript:" in text.lower():
@@ -53,9 +52,11 @@ def check_web(text):
 
 def check_shell(text):
     bad_characters = [";", "&", "|", "`", "$", "(", ")", "<", ">", "*", "?", '"', "'", "‘", "’"]
-    for character in text:
-        if character in bad_characters:
+    index = 0
+    while index < len(text):
+        if text[index] in bad_characters:
             return "FAIL"
+        index = index + 1
 
     if text.startswith("./") or text.startswith("/"):
         return "FAIL"
