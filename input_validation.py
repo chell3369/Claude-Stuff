@@ -13,7 +13,6 @@ import re
 
 
 def check_zip(text):
-    # A US ZIP code is 5 digits, or 5 digits, a dash, then 4 more digits.
     pattern = r"^\d{5}(-\d{4})?$"
     if re.match(pattern, text):
         return "PASS"
@@ -22,21 +21,15 @@ def check_zip(text):
 
 
 def check_sql(text):
-    # These characters are used to break out of an SQL statement and add
-    # extra commands, so any string containing one of them fails. This
-    # includes curly quotes, since Word sometimes autocorrects a plain
-    # quote into one.
     bad_characters = ["'", '"', "‘", "’", ";", "(", ")", "="]
     for character in text:
         if character in bad_characters:
             return "FAIL"
 
-    # Two dashes in a row start an SQL comment, which can be used to cut
-    # off the rest of a statement.
+
     if "--" in text:
         return "FAIL"
 
-    # These words are used to build or change an SQL query.
     bad_words = ["select", "insert", "update", "delete", "drop", "union"]
     lower_text = text.lower()
     for word in bad_words:
@@ -47,16 +40,11 @@ def check_sql(text):
 
 
 def check_web(text):
-    # These characters let a string close an HTML tag or attribute and
-    # start a new one, which is how a script gets injected into a page.
-    # This includes curly quotes, since Word sometimes autocorrects a
-    # plain quote into one.
     bad_characters = ["<", ">", '"', "'", "&", "‘", "’"]
     for character in text:
         if character in bad_characters:
             return "FAIL"
 
-    # javascript: links run code instead of going to a normal web address.
     if "javascript:" in text.lower():
         return "FAIL"
 
@@ -64,16 +52,11 @@ def check_web(text):
 
 
 def check_shell(text):
-    # These characters let a string chain commands together, redirect
-    # output, or run a second command inside the first one. This includes
-    # curly quotes, since Word sometimes autocorrects a plain quote into
-    # one.
     bad_characters = [";", "&", "|", "`", "$", "(", ")", "<", ">", "*", "?", '"', "'", "‘", "’"]
     for character in text:
         if character in bad_characters:
             return "FAIL"
 
-    # A string that starts with ./ or / is trying to run a specific file.
     if text.startswith("./") or text.startswith("/"):
         return "FAIL"
 
@@ -99,8 +82,6 @@ def main():
 
     line_number = 1
     for line in lines:
-        # readlines() keeps the newline character at the end of each line,
-        # so strip it off before testing the string.
         text = line.rstrip("\n")
 
         zip_result = check_zip(text)
