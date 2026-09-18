@@ -76,15 +76,12 @@ def main():
     lines = input_file.readlines()
     input_file.close()
 
-    header = f"{'Line':>4} | {'ZIP':^4} | {'SQL':^4} | {'Web':^4} | {'Shell':^5} | String"
-    divider = "-" * len(header)
-
-    print("=" * len(header))
-    print("Homework 3 - Input Validation".center(len(header)))
-    print("=" * len(header))
+    print("=" * 45)
+    print("Homework 3 - Input Validation")
+    print("=" * 45)
     print()
-    print(header)
-    print(divider)
+    print(f"{'Line':<6}{'ZIP':<6}{'SQL':<6}{'Web':<6}{'Shell':<6}String")
+    print("-" * 45)
 
     line_number = 1
     safe_count = 0
@@ -102,21 +99,19 @@ def main():
         else:
             flagged_count = flagged_count + 1
 
-        row = f"{line_number:>4} | {zip_result:^4} | {sql_result:^4} | {web_result:^4} | {shell_result:^5} | {text}"
-        print(row)
+        print(f"{line_number:<6}{zip_result:<6}{sql_result:<6}{web_result:<6}{shell_result:<6}{text}")
         line_number = line_number + 1
 
-    print(divider)
+    print("-" * 45)
     print(f"{safe_count} line(s) safe in every context, {flagged_count} line(s) flagged by at least one check")
 
     print()
     print("Now try your own string!")
     my_string = input("Enter a string to test: ")
-    print("-" * 20)
-    print(f"{'ZIP':<6}{check_zip(my_string)}")
-    print(f"{'SQL':<6}{check_sql(my_string)}")
-    print(f"{'Web':<6}{check_web(my_string)}")
-    print(f"{'Shell':<6}{check_shell(my_string)}")
+    print("ZIP:  ", check_zip(my_string))
+    print("SQL:  ", check_sql(my_string))
+    print("Web:  ", check_web(my_string))
+    print("Shell:", check_shell(my_string))
 
 
 if __name__ == "__main__":
