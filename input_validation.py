@@ -21,7 +21,7 @@ def check_zip(text):
 
 
 def check_sql(text):
-    bad_characters = ["'", '"', "‘", "’", ";", "(", ")", "="]
+    bad_characters = ["'", '"', "\u2018", "\u2019", ";", "(", ")", "="]
     for character in text:
         if character in bad_characters:
             return "FAIL"
