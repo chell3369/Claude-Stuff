@@ -1,0 +1,23 @@
+HW 5 using CyberMath version 2.0
+
+Checking add_numbers:
+2 + 5 = 7
+37 + 57 = 94
+-19 + 41 = 22
+
+Checking subtract_numbers:
+20 - 7 = 13
+8 - 26 = -18
+270 - 157 = 113
+
+Checking multiply_numbers:
+3 x 5 = 15
+121 x (-4) = -484
+389 x 0 = 0
+
+Checking divide_numbers:
+24 / 3 = 8
+224 / (-16) = -14
+88 / 11 = 8
+
+Now try your own numbers!
